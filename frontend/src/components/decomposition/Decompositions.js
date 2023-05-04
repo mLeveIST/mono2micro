@@ -47,6 +47,17 @@ export const Decompositions = () => {
         });
     }
 
+    function handleExportDecomposition(decompositionName) {
+        const toastId = toast.loading("Exporting " + decompositionName + "...");
+        const service = new APIService();
+        service.exportDecomposition(decompositionName).then(() => {
+            toast.update(toastId, {type: toast.TYPE.SUCCESS, render: "Decomposition exported.", isLoading: false});
+            setTimeout(() => {toast.dismiss(toastId)}, 1000);
+        }).catch(() => {
+            toast.update(toastId, {type: toast.TYPE.ERROR, render: "Error exporting " + decompositionName + ".", isLoading: false});
+        });
+    }
+
     function renderBreadCrumbs() {
         return (
             <Breadcrumb>
@@ -93,7 +104,7 @@ export const Decompositions = () => {
             }
 
             <Row className={"d-flex flex-wrap mw-100"} style={{gap: '1rem 1rem'}}>
-                {decompositions.map(decomposition => decomposition.printCard(loadDecompositions, handleDeleteDecomposition))}
+                {decompositions.map(decomposition => decomposition.printCard(loadDecompositions, handleDeleteDecomposition, handleExportDecomposition))}
             </Row>
         </div>
     );
