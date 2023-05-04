@@ -343,7 +343,10 @@ export class APIService {
     }
 
     async exportDecomposition(decompositionName: string) {
-        return await this.axios.get("/decomposition/" + decompositionName + "/export");
+        return await this.axios.get(
+            "/decomposition/" + decompositionName + "/export",
+            {responseType: 'blob',}
+        );
     }
 
     getLocalTransactionsGraphForFunctionality(
