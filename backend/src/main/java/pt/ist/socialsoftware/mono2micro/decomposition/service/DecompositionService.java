@@ -127,10 +127,11 @@ public class DecompositionService {
             }
 
             clusterObject.put("elements", elementsList);
+            clustersList.put(clusterObject);
         }
 
         decompositionObject.put("clusters", clustersList);
-        data.put("decompositions", decompositionObject);
+        data.put("decomposition", decompositionObject);
         return data;
     }
 
