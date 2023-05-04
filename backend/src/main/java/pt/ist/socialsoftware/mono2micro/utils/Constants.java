@@ -12,6 +12,7 @@ public final class Constants {
 
   public static String SCRIPTS_ADDRESS = (String) context.getBean("scriptsAddress");
   public static String CODEBASES_PATH = (String) context.getBean("codebasesPath");
+  public static String EXPORT_PATH = (String) context.getBean("exportPath");
   public static String MOJO_RESOURCES_PATH = "src/main/java/pt/ist/socialsoftware/mono2micro/utils/mojoCalculator/" +
           "src/main/resources/";
   public static String STRATEGIES_FOLDER = "/strategies/";

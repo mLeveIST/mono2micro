@@ -19,6 +19,9 @@ public class PropertiesManager {
 	@Value("${codebases.path}")
 	private String codebasesPath;
 
+	@Value("${export.path}")
+	private String exportPath;
+
 	@Bean(name="scriptsAddress")
 	public String getScriptsAddress() {
 		return scriptsAddress;
@@ -27,5 +30,10 @@ public class PropertiesManager {
 	@Bean(name="codebasesPath")
 	public String getCodebasesPath() {
 		return codebasesPath;
+	}
+
+	@Bean(name="exportPath")
+	public String getExportPath() {
+		return exportPath;
 	}
 }
